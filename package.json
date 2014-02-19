@@ -1,0 +1,41 @@
+{
+  "name": "decisions",
+  "version": "0.0.1",
+  "description": "Easy configuration for Node.js applications.",
+  "keywords": [
+    "conf",
+    "config",
+    "settings"
+  ],
+  "author": {
+    "name": "Jared Hanson",
+    "email": "jared@nodeprime.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/NodePrime/node-decisions.git"
+  },
+  "bugs": {
+    "url": "http://github.com/NodePrime/node-decisions/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/MIT"
+    }
+  ],
+  "main": "./lib",
+  "dependencies": {
+    "deep-get-set": "0.1.x"
+  },
+  "devDependencies": {
+    "mocha": "1.x.x",
+    "chai": "1.x.x"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/mocha --reporter spec --require test/bootstrap/node test/*.test.js"
+  }
+}
