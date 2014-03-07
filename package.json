@@ -1,6 +1,6 @@
 {
   "name": "decisions",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Easy configuration for Node.js applications.",
   "keywords": [
     "conf",
