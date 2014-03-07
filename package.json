@@ -31,7 +31,7 @@
     "deep-merge": "0.3.x",
     "alce": "1.x.x",
     "js-yaml": "3.x.x",
-    "toml": "1.x.x"
+    "toml": "2.x.x"
   },
   "devDependencies": {
     "mocha": "1.x.x",
