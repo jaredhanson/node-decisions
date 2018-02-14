@@ -9,19 +9,21 @@
   ],
   "author": {
     "name": "Jared Hanson",
-    "email": "jared@nodeprime.com"
+    "email": "jaredhanson@gmail.com",
+    "url": "http://www.jaredhanson.net/"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/NodePrime/node-decisions.git"
+    "url": "git://github.com/jaredhanson/node-decisions.git"
   },
   "bugs": {
-    "url": "http://github.com/NodePrime/node-decisions/issues"
+    "url": "http://github.com/jaredhanson/node-decisions/issues"
   },
+  "license": "MIT",
   "licenses": [
     {
       "type": "MIT",
-      "url": "http://www.opensource.org/licenses/MIT"
+      "url": "http://opensource.org/licenses/MIT"
     }
   ],
   "main": "./lib",
@@ -34,8 +36,9 @@
     "toml": "2.x.x"
   },
   "devDependencies": {
-    "mocha": "1.x.x",
-    "chai": "1.x.x"
+    "make-node": "0.3.x",
+    "mocha": "2.x.x",
+    "chai": "3.x.x"
   },
   "engines": {
     "node": "*"
