@@ -46,4 +46,15 @@ describe('Settings', function () {
     
   }); // #set
   
+  describe('#load', function () {
+    
+    it('should load JSON', function () {
+      var settings = new Settings();
+      settings.format('json', require('../lib/formats/json')());
+      settings.load('test/fixtures/settings.json');
+      expect(settings.toObject()).to.deep.equal({ server: { host: 'www.example.com', port: 8080 } });
+    });
+    
+  }); // #load
+  
 });
