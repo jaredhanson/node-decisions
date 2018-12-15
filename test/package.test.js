@@ -1,11 +1,17 @@
 /* global describe, it, expect */
 
-var pkg = require('..');
+var decisions = require('..');
+var Settings = require('../lib/settings');
+
 
 describe('decisions', function() {
   
-  it('should export object', function() {
-    expect(pkg).to.be.an('object');
+  it('should named export constructors', function() {
+    expect(decisions.Settings).to.equal(Settings);
+  });
+  
+  it('should named export formats', function() {
+    expect(decisions.json).to.be.a('function');
   });
   
 });
