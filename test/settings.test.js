@@ -7,4 +7,13 @@ describe('Settings', function () {
     expect(Settings).to.be.a('function');
   });
   
+  describe('constructor', function () {
+    
+    it('should construct with object', function () {
+      var settings = new Settings({ foo: 'bar' });
+      expect(settings.toObject()).to.deep.equal({ foo: 'bar' });
+    });
+    
+  });
+  
 });
