@@ -1,0 +1,7 @@
+{
+  // comment
+  server: {
+    host: "www.example.com",
+    port: 8080
+  }
+}

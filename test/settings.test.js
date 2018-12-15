@@ -55,6 +55,13 @@ describe('Settings', function () {
       expect(settings.toObject()).to.deep.equal({ server: { host: 'www.example.com', port: 8080 } });
     });
     
+    it('should load JSON5', function () {
+      var settings = new Settings();
+      settings.format('json5', require('../lib/formats/json')());
+      settings.load('test/fixtures/settings.json5');
+      expect(settings.toObject()).to.deep.equal({ server: { host: 'www.example.com', port: 8080 } });
+    });
+    
     it('should load TOML', function () {
       var settings = new Settings();
       settings.format('toml', require('../lib/formats/toml')());
