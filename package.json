@@ -28,7 +28,7 @@
   ],
   "main": "./lib",
   "dependencies": {
-    "clone": "0.1.x",
+    "clone": "^2.1.2",
     "deep-get-set": "0.1.x",
     "deep-merge": "1.x.x",
     "js-yaml": "^3.12.0",
