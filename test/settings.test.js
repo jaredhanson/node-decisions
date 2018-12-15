@@ -14,22 +14,36 @@ describe('Settings', function () {
       expect(settings.toObject()).to.deep.equal({ foo: 'bar' });
     });
     
-  });
+  }); // constructor
+  
+  describe('#get', function () {
+    
+    it('should get value', function () {
+      var settings = new Settings({ port: 8080 });
+      expect(settings.get('port')).to.equal(8080);
+    });
+    
+    it('should get object', function () {
+      var settings = new Settings({ server: { host: 'www.example.com', port: 8080 } });
+      expect(settings.get('server')).to.deep.equal({ host: 'www.example.com', port: 8080 });
+    });
+    
+  }); // #get
   
   describe('#set', function () {
     
     it('should set value', function () {
       var settings = new Settings();
-      settings.set('port', 8080)
+      settings.set('port', 8080);
       expect(settings.toObject()).to.deep.equal({ port: 8080 });
     });
     
     it('should set object', function () {
       var settings = new Settings();
-      settings.set('server', { host: 'www.example.com', port: 8080 })
+      settings.set('server', { host: 'www.example.com', port: 8080 });
       expect(settings.toObject()).to.deep.equal({ server: { host: 'www.example.com', port: 8080 } });
     });
     
-  });
+  }); // #set
   
 });
