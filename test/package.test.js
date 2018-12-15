@@ -6,6 +6,10 @@ var Settings = require('../lib/settings');
 
 describe('decisions', function() {
   
+  it('should named export functions', function() {
+    expect(decisions.createSettings).to.be.a('function');
+  });
+  
   it('should named export constructors', function() {
     expect(decisions.Settings).to.equal(Settings);
   });

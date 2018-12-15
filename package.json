@@ -36,9 +36,9 @@
     "toml": "2.x.x"
   },
   "devDependencies": {
-    "make-node": "0.3.x",
-    "mocha": "2.x.x",
-    "chai": "3.x.x"
+    "make-node": "^0.3.5",
+    "mocha": "^5.2.0",
+    "chai": "^4.2.0"
   },
   "engines": {
     "node": "*"
