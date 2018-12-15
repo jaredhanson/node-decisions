@@ -55,6 +55,20 @@ describe('Settings', function () {
       expect(settings.toObject()).to.deep.equal({ server: { host: 'www.example.com', port: 8080 } });
     });
     
+    it('should load TOML', function () {
+      var settings = new Settings();
+      settings.format('toml', require('../lib/formats/toml')());
+      settings.load('test/fixtures/settings.toml');
+      expect(settings.toObject()).to.deep.equal({ server: { host: 'www.example.com', port: 8080 } });
+    });
+    
+    it('should load YAML', function () {
+      var settings = new Settings();
+      settings.format('yaml', require('../lib/formats/yaml')());
+      settings.load('test/fixtures/settings.yaml');
+      expect(settings.toObject()).to.deep.equal({ server: { host: 'www.example.com', port: 8080 } });
+    });
+    
   }); // #load
   
 });
