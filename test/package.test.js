@@ -1,7 +1,7 @@
 /* global describe, it, expect */
 
 var decisions = require('..');
-var Settings = require('../lib/settings');
+var Settings = require('../lib/object');
 
 
 describe('decisions', function() {
