@@ -46,36 +46,4 @@ describe('Object', function () {
     
   }); // #set
   
-  describe('#load', function () {
-    
-    it('should load JSON', function () {
-      var obj = new Object();
-      obj.format('json', require('../lib/formats/json')());
-      obj.load('test/fixtures/settings.json');
-      expect(obj.toObject()).to.deep.equal({ server: { host: 'www.example.com', port: 8080 } });
-    });
-    
-    it('should load JSON5', function () {
-      var obj = new Object();
-      obj.format('json5', require('../lib/formats/json')());
-      obj.load('test/fixtures/settings.json5');
-      expect(obj.toObject()).to.deep.equal({ server: { host: 'www.example.com', port: 8080 } });
-    });
-    
-    it('should load TOML', function () {
-      var obj = new Object();
-      obj.format('toml', require('../lib/formats/toml')());
-      obj.load('test/fixtures/settings.toml');
-      expect(obj.toObject()).to.deep.equal({ server: { host: 'www.example.com', port: 8080 } });
-    });
-    
-    it('should load YAML', function () {
-      var obj = new Object();
-      obj.format('yaml', require('../lib/formats/yaml')());
-      obj.load('test/fixtures/settings.yaml');
-      expect(obj.toObject()).to.deep.equal({ server: { host: 'www.example.com', port: 8080 } });
-    });
-    
-  }); // #load
-  
 });
