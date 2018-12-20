@@ -14,8 +14,4 @@ describe('decisions', function() {
     expect(decisions.Settings).to.equal(Settings);
   });
   
-  it('should named export formats', function() {
-    expect(decisions.json).to.be.a('function');
-  });
-  
 });
