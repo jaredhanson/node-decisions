@@ -16,7 +16,7 @@ describe('File', function () {
     
   }); // constructor
   
-  describe.only('#open', function () {
+  describe('#open', function () {
     
     it('should read JSON file', function () {
       var file = new File('test/fixtures/settings.json');
