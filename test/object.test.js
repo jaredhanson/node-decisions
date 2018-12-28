@@ -28,6 +28,16 @@ describe('Object', function () {
       expect(obj.get('server')).to.deep.equal({ host: 'www.example.com', port: 8080 });
     });
     
+    it('should get deep value', function () {
+      var obj = new Object({ server: { host: 'www.example.com', port: 8080 } });
+      expect(obj.get('server/host')).to.equal('www.example.com');
+    });
+    
+    it('should get deep object', function () {
+      var obj = new Object({ database: { server: { host: 'www.example.com', port: 8080 } }, schema: 'lorem' });
+      expect(obj.get('database/server')).to.deep.equal({ host: 'www.example.com', port: 8080 });
+    });
+    
   }); // #get
   
   describe('#set', function () {
@@ -42,6 +52,30 @@ describe('Object', function () {
       var obj = new Object();
       obj.set('server', { host: 'www.example.com', port: 8080 });
       expect(obj.toObject()).to.deep.equal({ server: { host: 'www.example.com', port: 8080 } });
+    });
+    
+    it('should set deep value', function () {
+      var obj = new Object();
+      obj.set('server/host', 'www.example.com');
+      expect(obj.toObject()).to.deep.equal({ server: { host: 'www.example.com' } });
+    });
+    
+    it('should set deep object', function () {
+      var obj = new Object();
+      obj.set('database/server', { host: 'www.example.com', port: 8080 });
+      expect(obj.toObject()).to.deep.equal({ database: { server: { host: 'www.example.com', port: 8080 } } });
+    });
+    
+    it('should merge deep value', function () {
+      var obj = new Object({ server: { port: 8080 } });
+      obj.set('server/host', 'www.example.com');
+      expect(obj.toObject()).to.deep.equal({ server: { host: 'www.example.com', port: 8080 } });
+    });
+    
+    it('should overwrite deep value', function () {
+      var obj = new Object({ server: { host: 'www.example.com', port: 8080 } });
+      obj.set('server/host', 'www.example.net');
+      expect(obj.toObject()).to.deep.equal({ server: { host: 'www.example.net', port: 8080 } });
     });
     
   }); // #set
