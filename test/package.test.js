@@ -2,6 +2,7 @@
 
 var decisions = require('..');
 var Settings = require('../lib/settings');
+var Object = require('../lib/object');
 
 
 describe('decisions', function() {
@@ -12,6 +13,7 @@ describe('decisions', function() {
   
   it('should named export constructors', function() {
     expect(decisions.Settings).to.equal(Settings);
+    expect(decisions.Object).to.equal(Object);
   });
   
 });
