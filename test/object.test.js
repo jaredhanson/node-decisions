@@ -34,8 +34,13 @@ describe('Object', function () {
     });
     
     it('should get deep object', function () {
-      var obj = new Object({ database: { server: { host: 'www.example.com', port: 8080 } }, schema: 'lorem' });
+      var obj = new Object({ database: { server: { host: 'www.example.com', port: 8080 }, schema: 'lorem' } });
       expect(obj.get('database/server')).to.deep.equal({ host: 'www.example.com', port: 8080 });
+    });
+    
+    it('should get deeper value', function () {
+      var obj = new Object({ database: { server: { host: 'www.example.com', port: 8080 }, schema: 'lorem' } });
+      expect(obj.get('database/server/host')).to.equal('www.example.com');
     });
     
   }); // #get
@@ -60,12 +65,6 @@ describe('Object', function () {
       expect(obj.toObject()).to.deep.equal({ server: { host: 'www.example.com' } });
     });
     
-    it('should set deep object', function () {
-      var obj = new Object();
-      obj.set('database/server', { host: 'www.example.com', port: 8080 });
-      expect(obj.toObject()).to.deep.equal({ database: { server: { host: 'www.example.com', port: 8080 } } });
-    });
-    
     it('should merge deep value', function () {
       var obj = new Object({ server: { port: 8080 } });
       obj.set('server/host', 'www.example.com');
@@ -76,6 +75,30 @@ describe('Object', function () {
       var obj = new Object({ server: { host: 'www.example.com', port: 8080 } });
       obj.set('server/host', 'www.example.net');
       expect(obj.toObject()).to.deep.equal({ server: { host: 'www.example.net', port: 8080 } });
+    });
+    
+    it('should set deep object', function () {
+      var obj = new Object();
+      obj.set('database/server', { host: 'www.example.com', port: 8080 });
+      expect(obj.toObject()).to.deep.equal({ database: { server: { host: 'www.example.com', port: 8080 } } });
+    });
+    
+    it('should merge deep value', function () {
+      var obj = new Object({ database: { server: { host: 'www.example.com', port: 8080 } } });
+      obj.set('database/schema', 'lorem');
+      expect(obj.toObject()).to.deep.equal({ database: { server: { host: 'www.example.com', port: 8080 }, schema: 'lorem' } });
+    });
+    
+    it('should overwrite deep value', function () {
+      var obj = new Object({ database: { server: { host: 'www.example.com', port: 8080 }, schema: 'lorem' } });
+      obj.set('database/schema', 'ipsum');
+      expect(obj.toObject()).to.deep.equal({ database: { server: { host: 'www.example.com', port: 8080 }, schema: 'ipsum' } });
+    });
+    
+    it('should overwrite deeper value', function () {
+      var obj = new Object({ database: { server: { host: 'www.example.com', port: 8080 } } });
+      obj.set('database/server/host', 'www.example.net');
+      expect(obj.toObject()).to.deep.equal({ database: { server: { host: 'www.example.net', port: 8080 } } });
     });
     
   }); // #set
