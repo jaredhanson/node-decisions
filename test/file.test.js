@@ -42,6 +42,12 @@ describe('File', function () {
       expect(file.toObject()).to.deep.equal({ server: { host: 'www.example.com', port: 8080 } });
     });
     
+    it('should be empty when no such file', function () {
+      var file = new File('test/fixtures/no-settings.json');
+      file.read();
+      expect(file.toObject()).to.deep.equal({});
+    });
+    
     it('should be chainable', function () {
       var file = new File('test/fixtures/settings.json');
       expect(file.read().toObject()).to.deep.equal({ server: { host: 'www.example.com', port: 8080 } });
