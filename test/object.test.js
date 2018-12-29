@@ -107,6 +107,12 @@ describe('Object', function () {
       expect(obj.toObject()).to.deep.equal({ database: { server: { host: 'www.example.net', port: 8080 } } });
     });
     
+    it('should be chainable', function () {
+      var obj = new Object();
+      obj.set('host', 'www.example.com').set('port', 8080);
+      expect(obj.toObject()).to.deep.equal({ host: 'www.example.com', port: 8080 });
+    });
+    
   }); // #set
   
 });

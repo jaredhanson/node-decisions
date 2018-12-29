@@ -16,32 +16,52 @@ describe('File', function () {
     
   }); // constructor
   
-  describe('#open', function () {
+  describe('#read', function () {
     
     it('should read JSON file', function () {
       var file = new File('test/fixtures/settings.json');
-      file.open();
+      file.read();
       expect(file.toObject()).to.deep.equal({ server: { host: 'www.example.com', port: 8080 } });
     });
     
     it('should read JSON5 file', function () {
       var file = new File('test/fixtures/settings.json5');
-      file.open();
+      file.read();
       expect(file.toObject()).to.deep.equal({ server: { host: 'www.example.com', port: 8080 } });
     });
     
     it('should read YAML file', function () {
       var file = new File('test/fixtures/settings.yaml');
-      file.open();
+      file.read();
       expect(file.toObject()).to.deep.equal({ server: { host: 'www.example.com', port: 8080 } });
     });
     
     it('should read TOML file', function () {
       var file = new File('test/fixtures/settings.toml');
-      file.open();
+      file.read();
       expect(file.toObject()).to.deep.equal({ server: { host: 'www.example.com', port: 8080 } });
     });
     
-  }); // #open
+    it('should be chainable', function () {
+      var file = new File('test/fixtures/settings.json');
+      expect(file.read().toObject()).to.deep.equal({ server: { host: 'www.example.com', port: 8080 } });
+    });
+    
+  }); // #read
+  
+  describe('#get', function () {
+    
+    var file = new File('test/fixtures/settings.json');
+    file.read();
+    
+    it('should get object', function () {
+      expect(file.get('server')).to.deep.equal({ host: 'www.example.com', port: 8080 });
+    });
+    
+    it('should get deep value', function () {
+      expect(file.get('server/host')).to.equal('www.example.com');
+    });
+    
+  });
   
 });
