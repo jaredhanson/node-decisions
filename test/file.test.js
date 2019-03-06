@@ -48,6 +48,11 @@ describe('File', function () {
       expect(file.toObject()).to.deep.equal({});
     });
     
+    it('should error when reading invalid file', function () {
+      var file = new File('test/fixtures/settings.einval');
+      expect(function() { file.read(); }).to.throw(Error, "Format '.einval' not supported");
+    });
+    
     it('should be chainable', function () {
       var file = new File('test/fixtures/settings.json');
       expect(file.read().toObject()).to.deep.equal({ server: { host: 'www.example.com', port: 8080 } });
