@@ -11,6 +11,7 @@ node_js:
 before_install:
   - "npm install -g istanbul@0.4"
   - "npm install -g coveralls@3"
+  - "npm install -g codecov@3"
 
 script:
   - "make test-cov"
