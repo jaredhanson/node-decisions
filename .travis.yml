@@ -9,6 +9,7 @@ node_js:
 
 
 before_install:
+  - "env"
   - "npm install istanbul@0.4.x -g"
   - "npm install coveralls@2.x.x -g"
 
