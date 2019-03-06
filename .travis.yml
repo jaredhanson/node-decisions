@@ -9,8 +9,8 @@ node_js:
 
 
 before_install:
-  - "npm install istanbul@0.4.x"
-  - "npm install coveralls@2.x.x"
+  - "npm install -g istanbul@0.4"
+  - "npm install -g coveralls@2"
 
 script:
   - "make test-cov"
