@@ -37,7 +37,7 @@
     "toml": "^2.3.3"
   },
   "devDependencies": {
-    "make-node": "^0.3.5",
+    "make-node": "^0.4.0",
     "mocha": "^5.2.0",
     "chai": "^4.2.0"
   },
@@ -45,6 +45,6 @@
     "node": "*"
   },
   "scripts": {
-    "test": "node_modules/.bin/mocha --reporter spec --require test/bootstrap/node test/*.test.js"
+    "test": "make test"
   }
 }
