@@ -17,6 +17,6 @@ script:
   - "make test-cov"
 
 after_success:
-  - "make report-cov"
+  - "make report-cov-coveralls"
 
 sudo: false
